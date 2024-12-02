@@ -1,9 +1,13 @@
 use std::env;
 
 mod day_1;
+mod day_2;
 
 type DayFunction = fn(String) -> String;
-const DAYS: &[(&str, DayFunction, DayFunction)] = &[("1", day_1::first, day_1::second)];
+const DAYS: &[(&str, DayFunction, DayFunction)] = &[
+    ("1", day_1::first, day_1::second),
+    ("2", day_2::first, day_2::second),
+];
 
 pub enum Task {
     First,
