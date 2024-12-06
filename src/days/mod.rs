@@ -1,4 +1,4 @@
-use std::env;
+use std::{env, time::Instant};
 
 mod day_1;
 mod day_2;
@@ -22,7 +22,7 @@ pub enum Task {
     Second,
 }
 
-pub fn solve_day(day: String, task: Task) -> String {
+pub fn solve_day(day: String, task: Task, time: bool) -> String {
     let session = env::var("ADVENT_OF_CODE_SESSION")
         .expect("Environment variable 'ADVENT_OF_CODE_SESSION' was not set.");
 
@@ -40,7 +40,13 @@ pub fn solve_day(day: String, task: Task) -> String {
                 .error_for_status()
                 .unwrap();
             let input = response.text().unwrap();
+            let start = Instant::now();
             let output = function(input);
+            let end = Instant::now();
+            let duration = end - start;
+            if time {
+                println!("Task took {}ms.", duration.as_millis());
+            }
             return output;
         }
     }

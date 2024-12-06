@@ -7,6 +7,8 @@ use crate::days::Task;
 pub struct Args {
     pub day: String,
     pub task: ArgTask,
+    #[arg(short, long, help = "Enable tracking the time a task needs finish")]
+    pub time: bool,
 }
 
 #[derive(Clone, Copy, Debug, ValueEnum)]
