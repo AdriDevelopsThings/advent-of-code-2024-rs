@@ -8,6 +8,7 @@ mod day_5;
 mod day_6;
 mod day_7;
 mod day_8;
+mod day_9;
 
 type DayFunction = fn(String) -> String;
 const DAYS: &[(&str, DayFunction, DayFunction)] = &[
@@ -19,6 +20,7 @@ const DAYS: &[(&str, DayFunction, DayFunction)] = &[
     ("6", day_6::first, day_6::second),
     ("7", day_7::first, day_7::second),
     ("8", day_8::first, day_8::second),
+    ("9", day_9::first, day_9::second),
 ];
 
 pub enum Task {
